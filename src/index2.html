@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>form register</title>
+    <link rel="stylesheet" href="main.css" />
+    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="../node_modules/moment/min/moment.min.js"></script>
+    <link rel="stylesheet"
+        href="../node_modules/bootstrap-datetimepicker-npm/build/css/bootstrap-datetimepicker.min.css" />
+    <script src="../node_modules/bootstrap-datetimepicker-npm/build/js/bootstrap-datetimepicker.min.js"></script>
+</head>
+
+<body style="background-color: blueviolet;">
+    <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-firestore.js"></script>
+    <pre class="pre-scrollable"></pre>
+    <div class="container" style="width: 50%;background-color: azure;">
+        <form onsubmit="registered(event)" class="needs-validation" novalidate>
+            <center>
+                <h style="font-size: 50px;"><b>Personal Information</b></h>
+            </center>
+            <div class="form-row">
+                <div class="row my-3">
+                    <div class="col-12">
+                        <label for="validationTooltip01">Name :-</label>
+                        <input type="text" class="form-control" id="name" required>
+                    </div>
+                </div>
+                <div class="row my-3">
+                    <div class="col-6">
+                        <label for="validationTooltip02">Father/Guardian Name :-</label>
+                        <input type="text" class="form-control" id="fathers_name" required>
+
+                    </div>
+                    <div class="col-6">
+                        <label for="validationTooltip02">Mother/Guardian Name :-</label>
+                        <input type="text" class="form-control" id="mothers_name" required>
+
+                    </div>
+                </div>
+                <div class="row my-3">
+                    <div class="col-6">
+                        <label for="validationTooltip02">Email ID :-</label>
+                        <input type="email" class="form-control" id="email_id" required>
+
+                    </div>
+                    <div class="col-6">
+                        <label for="validationTooltip02">phone no</label>
+                        <input type="text" class="form-control" id="phone_no" required>
+
+                    </div>
+                </div>
+                <div class="row my-3">
+                    <div class="col-6">
+                        <label>Chose a form of identity proof :-</label>
+                        <br>
+                        <select class="form-control" id="id_proof">
+                            <option value="adhar card">adhar card</option>
+                            <option value="pan card">pan card</option>
+                            <option value="voter id card">voter id card</option>
+                            <option value="driving licence">driving licence</option>
+                            <option value="ration card">ration card</option>
+                        </select>
+                        <br>
+                    </div>
+
+                    <div class="col-6">
+                        <label for="validationTooltip02">Identification No:-</label>
+                        <input type="text" class="form-control" id="id_no" required>
+                    </div>
+                </div>
+
+                <div class="row my-3">
+                    <div class="col-6">
+                        <label>Date Of Birth(dob):-</label>
+                        <input class="form-control" type="date" id="time" />
+                        <br>
+                    </div>
+                    <div class="col-6">
+                        <lable>gender:-</lable>
+                        <div class="form-check form-check-inline">
+                            <input name="gender" class="form-check-input" type="radio" id="male" value="male">
+                            <label class="form-check-label" for="inlineCheckbox1">Male</label>
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <input name="gender" class="form-check-input" type="radio" id="female" value="female">
+                            <label class="form-check-label" for="inlineCheckbox2">Female</label>
+                          </div>
+                    </div>
+                    <center>
+                        <hr style="position: relative;
+    top: 20px;
+    border: none;
+    height: 12px;
+    background: rgb(194, 37, 233);
+    margin-bottom: 50px;"><b style="font-size: 50px;">Address</b>
+                    </center>
+                    <div class="row my-3">
+                        <div class="col-6">
+                            <label for="validationTooltip02">house No:-</label>
+                            <input type="text" class="form-control" id="h_no" required>
+                        </div>
+                        <div class="col-6">
+                            <label for="validationTooltip02">locality:-</label>
+                            <input type="text" class="form-control" id="locality" required>
+                        </div>
+                    </div>
+                    <div class="row my-3">
+                        <div class="col-6">
+                            <label for="validationTooltip02">pin:-</label>
+                            <input type="text" class="form-control" id="pin" required>
+                        </div>
+                        <div class="col-6">
+                            <label>India states:-</label>
+                            <br>
+                            <select class="form-control" id="country-state" name="country-state">
+            
+                                <option value="AN">Andaman and Nicobar Islands</option>
+                                <option value="AP">Andhra Pradesh</option>
+                                <option value="AR">Arunachal Pradesh</option>
+                                <option value="AS">Assam</option>
+                                <option value="BR">Bihar</option>
+                                <option value="CH">Chandigarh</option>
+                                <option value="CT">Chhattisgarh</option>
+                                <option value="DN">Dadra and Nagar Haveli</option>
+                                <option value="DD">Daman and Diu</option>
+                                <option value="DL">Delhi</option>
+                                <option value="GA">Goa</option>
+                                <option value="GJ">Gujarat</option>
+                                <option value="HR">Haryana</option>
+                                <option value="HP">Himachal Pradesh</option>
+                                <option value="JK">Jammu and Kashmir</option>
+                                <option value="JH">Jharkhand</option>
+                                <option value="KA">Karnataka</option>
+                                <option value="KL">Kerala</option>
+                                <option value="LA">Ladakh</option>
+                                <option value="LD">Lakshadweep</option>
+                                <option value="MP">Madhya Pradesh</option>
+                                <option value="MH">Maharashtra</option>
+                                <option value="MN">Manipur</option>
+                                <option value="ML">Meghalaya</option>
+                                <option value="MZ">Mizoram</option>
+                                <option value="NL">Nagaland</option>
+                                <option value="OR">Odisha</option>
+                                <option value="PY">Puducherry</option>
+                                <option value="PB">Punjab</option>
+                                <option value="RJ">Rajasthan</option>
+                                <option value="SK">Sikkim</option>
+                                <option value="TN">Tamil Nadu</option>
+                                <option value="TG">Telangana</option>
+                                <option value="TR">Tripura</option>
+                                <option value="UP">Uttar Pradesh</option>
+                                <option value="UT">Uttarakhand</option>
+                                <option value="WB">West Bengal</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row my-3">
+                        <div class="col-6">
+                            <p>Select a City in India</p>
+                            <select class="form-control" id="city">
+                                <option value="Delhi">Delhi</option>
+                                <option value="Mumbai">Mumbai</option>
+                                <option value="Bangalore">Bangalore</option>
+                                <option value="Chennai">Chennai</option>
+                                <option value="Kolkata">Kolkata</option>
+                            </select>
+                        </div>
+
+
+                        <br>
+                        <br>
+                        <div class="col-4">
+                            <button class="btn btn-primary" type="submit">Submit form</button>
+                        </div>
+                    </div>
+                </div>
+        </form>
+
+    </div>
+
+    </div>
+    <script type="text/javascript" src="app.js"></script>
+    
+<script>
+  // Initialize Firebase with your project's configuration
+  const firebaseConfig = {
+    apiKey: "YOUR_API_KEY",
+    authDomain: "YOUR_AUTH_DOMAIN",
+    projectId: "YOUR_PROJECT_ID",
+    storageBucket: "YOUR_STORAGE_BUCKET",
+    messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+    appId: "YOUR_APP_ID"
+  };
+  firebase.initializeApp(firebaseConfig);
+
+  // Initialize other Firebase services
+  const auth = firebase.auth();
+  const db = firebase.firestore();
+</script>
+
+</body>
+<!-- <script>
+    $('#time').datetimepicker({
+        format: 'yyyy-mm-dd'
+    });
+</script> -->
+
+</html>

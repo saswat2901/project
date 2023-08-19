@@ -1,0 +1,23 @@
+{
+  "name": "form_html_csss",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^5.2.3",
+    "bootstrap-datetimepicker-npm": "^4.17.37-npm",
+    "firebase": "^10.2.0",
+    "jquery": "^3.7.0",
+    "moment": "^2.29.4"
+  },
+  "description": "",
+  "devDependencies": {
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4"
+  }
+}
